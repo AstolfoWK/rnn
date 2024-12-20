@@ -1,0 +1,12 @@
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"  
+
+print("CUDA_VISIBLE_DEVICES:", os.environ.get("CUDA_VISIBLE_DEVICES", "Not Set"))
+
+import tensorflow as tf
+gpus = tf.config.list_physical_devices('GPU')
+print(tf.__version__)
+print(f"Number of GPUs: {len(gpus)}")
+for gpu in gpus:
+    print(gpu)
